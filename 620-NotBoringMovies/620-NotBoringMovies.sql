@@ -1,0 +1,6 @@
+-- Last updated: 7/13/2026, 12:10:48 PM
+# Write your MySQL query statement below
+select *
+from Cinema
+where id%2 !=0 and description !='boring'
+order by rating desc
