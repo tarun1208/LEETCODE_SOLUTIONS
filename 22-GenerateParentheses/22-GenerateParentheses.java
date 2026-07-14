@@ -1,25 +1,29 @@
-// Last updated: 7/14/2026, 5:32:06 PM
+// Last updated: 7/14/2026, 5:39:45 PM
 1class Solution {
-2    public String addBinary(String a, String b) {
-3
-4        StringBuilder result = new StringBuilder();
-5        int i = a.length() - 1;
-6        int j = b.length() - 1;
-7        int carry = 0;
-8
-9        while (i >= 0 || j >= 0 || carry != 0) {
-10            int sum = carry;
-11            if (i >= 0) {
-12                sum += a.charAt(i) - '0';
-13                i--;
-14            }
-15            if (j >= 0) {
-16                sum += b.charAt(j) - '0';
-17                j--;
+2    public String multiply(String num1, String num2) {
+3        if(num1.equals("0")||num2.equals("0")){
+4            return "0";
+5        }
+6        int arr[] = new int[num1.length()+num2.length()];
+7
+8        for (int i = num1.length()- 1; i >= 0; i--) {
+9            for (int j = num2.length()- 1; j >= 0; j--) {
+10                int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+11                int p1 = i + j;
+12                int p2 = i + j + 1;
+13                
+14                int sum = mul + arr[p2];
+15
+16                arr[p1] += sum / 10;
+17                arr[p2] = sum % 10;
 18            }
-19            result.append(sum % 2);
-20            carry = sum / 2;
-21        }
-22        return result.reverse().toString();
-23    }
-24}
+19        }
+20        StringBuilder sb = new StringBuilder();
+21        for (int p : arr) {
+22            if (!(sb.length() == 0 && p == 0)) {
+23                sb.append(p);
+24            }
+25        }
+26        return sb.toString();
+27    }
+28}
