@@ -1,4 +1,4 @@
-// Last updated: 7/14/2026, 3:58:43 PM
+// Last updated: 7/14/2026, 4:03:56 PM
 1class Solution {
 2    public boolean isAnagram(String s, String t) {
 3
@@ -11,14 +11,15 @@
 10            char c = s.charAt(i);
 11            map1.put(c, map1.getOrDefault(c, 0) + 1);
 12        }
-13        HashMap<Character,Integer> map2 = new HashMap<>();
-14        for(int i=0;i<t.length();i++){
-15            char c = t.charAt(i);
-16            map2.put(c, map2.getOrDefault(c, 0) + 1);
-17        }
-18        if(map1.equals(map2)){
-19            return true;
-20        }
-21        return false;
-22    }
-23}
+13        for(int i=0;i<t.length();i++){
+14            char d = t.charAt(i);
+15            map1.put(d, map1.getOrDefault(d, 0) - 1);
+16        }
+17        for (int count : map1.values()) {
+18            if (count != 0) {
+19                return false;
+20            }
+21        }
+22        return true;
+23    }
+24}
