@@ -1,4 +1,4 @@
-// Last updated: 7/22/2026, 2:12:31 PM
+// Last updated: 7/22/2026, 2:12:42 PM
 1class Solution {
 2    int dp[][];
 3    public int uniquePaths(int m, int n) {
@@ -14,10 +14,11 @@
 13        if(i>=m || j>=n) return 0;
 14        if(i == m-1 && j == n-1) return 1;
 15        if (dp[i][j] != -1) return dp[i][j];
-16        int down = solve(i+1,j,m,n);
-17        int right = solve(i,j+1,m,n);
-18
-19        dp[i][j] = down + right;
-20        return dp[i][j];
-21    }
-22}
+16        
+17        int down = solve(i+1,j,m,n);
+18        int right = solve(i,j+1,m,n);
+19
+20        dp[i][j] = down + right;
+21        return dp[i][j];
+22    }
+23}
