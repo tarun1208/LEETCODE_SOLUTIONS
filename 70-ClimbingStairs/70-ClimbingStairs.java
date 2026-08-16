@@ -1,15 +1,12 @@
-// Last updated: 7/18/2026, 2:35:57 PM
-1class Solution {
-2    public int climbStairs(int n) {
-3        if (n == 0 || n == 1) {
-4            return 1;
-5        }
-6        int prev = 1, curr = 1;
-7        for (int i = 2; i <= n; i++) {
-8            int temp = curr;
-9            curr = prev + curr;
-10            prev = temp;
-11        }
-12        return curr;
-13    }
-14}
+// Last updated: 8/16/2026, 9:33:59 PM
+public class Main {
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        int[][] mat1 = {{3, 1, 2}, {4, 8, 5}, {6, 9, 7}};
+        System.out.println(solution.zigzagSequence(mat1)); // Output: 18
+
+        int[][] mat2 = {{1, 2, 4}, {3, 9, 6}, {11, 3, 15}};
+        System.out.println(solution.zigzagSequence(mat2)); // Output: 28
+    }
+}
