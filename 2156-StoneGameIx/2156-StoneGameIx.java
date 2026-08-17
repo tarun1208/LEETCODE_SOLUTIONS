@@ -1,0 +1,15 @@
+// Last updated: 8/17/2026, 8:02:04 PM
+class Solution {
+    public boolean stoneGameIX(int[] stones) {
+        int[] cnt = new int[3];
+        for (int stone : stones) {
+            cnt[stone % 3]++;
+        }
+        
+        if (cnt[0] % 2 == 0) {
+            return cnt[1] >= 1 && cnt[2] >= 1;
+        }
+        
+        return Math.abs(cnt[1] - cnt[2]) > 2;
+    }
+}
