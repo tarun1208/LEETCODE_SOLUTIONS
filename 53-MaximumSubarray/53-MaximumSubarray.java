@@ -1,15 +1,12 @@
-// Last updated: 7/15/2026, 2:19:19 PM
-1class Solution {
-2    public int maxSubArray(int[] nums) {
-3        int sum = 0;
-4        int ans = Integer.MIN_VALUE;
-5        for(int i=0;i<nums.length;i++){
-6            sum+=nums[i];
-7            ans = Math.max(ans,sum);
-8            if(sum<0){
-9                sum = 0;
-10            }
-11        }
-12        return ans;
-13    }
-14}
+// Last updated: 8/20/2026, 10:29:03 AM
+public class Main {
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        int[][] mat1 = {{3, 1, 2}, {4, 8, 5}, {6, 9, 7}};
+        System.out.println(solution.zigzagSequence(mat1)); // Output: 18
+
+        int[][] mat2 = {{1, 2, 4}, {3, 9, 6}, {11, 3, 15}};
+        System.out.println(solution.zigzagSequence(mat2)); // Output: 28
+    }
+}
